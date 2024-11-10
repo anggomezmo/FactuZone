@@ -13,9 +13,9 @@
     background-repeat: no-repeat;
 }
 
-.main-container .login-container {
+.main-container .register-container {
     box-sizing: border-box;
-    overflow: hidden;
+  
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,16 +23,14 @@
     border: 1px solid black;
     height: auto;
     width: 25%;
-    gap: 30px;
-    padding-left: auto;
-    padding-right: auto;
-    padding-top: 60px;
-    padding-bottom: 40px;
+    gap: 20px;
+    padding: 20px;
+    padding-top: 30px;
     background-color: white;
     border-radius: 10px; /* Bordes redondeados */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
 }
-.main-container .login-container label{
+.main-container .register-container label{
         font-weight: 600; /* Negrita para mayor visibilidad */
         font-size: 16px;
         color: #333; /* Color oscuro para contraste */
@@ -68,6 +66,11 @@
    border: 2px solid rgb(146, 146, 233);
 }
 
+
+#born-date{
+    background-image: url('/src/images/calendar.svg');
+}
+
 #user{
     background-image: url('/src/images/email.svg');
 }
@@ -76,6 +79,13 @@
     background-image: url('/src/images/password.svg');
 }
 
+#number{
+      background-image: url('/src/images/phone.svg');
+}
+
+#name{
+    background-image: url('/src/images/user.svg');
+}
 
 .button{
    

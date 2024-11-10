@@ -22,3 +22,13 @@
     height: 75px;
     cursor: pointer;
 }
+.logo h1{
+    color: #000;
+}
+
+
+.logo:focus h1, 
+.logo:active h1 {
+    color: #000; /* Mantén el color original al hacer clic */
+    outline: none; /* Opcional: elimina borde de foco */
+}
