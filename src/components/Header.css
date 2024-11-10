@@ -1,0 +1,24 @@
+.header-container{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    background-color: white;
+    box-sizing: border-box;
+    padding-left: 60px;
+    border-bottom: 1px solid black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.header-container img{
+    position: relative;
+    height: 75px;
+}
+
+.logo{
+    display: flex;
+    gap: 5px;
+    height: 75px;
+    cursor: pointer;
+}

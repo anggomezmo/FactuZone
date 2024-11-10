@@ -1,0 +1,95 @@
+
+
+.main-container{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-image: url('/public/build-login.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.main-container .login-container {
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid black;
+    height: 47%;
+    width: 25%;
+    gap: 40px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+.main-container .login-container label{
+        font-weight: 600; /* Negrita para mayor visibilidad */
+        font-size: 16px;
+        color: #333; /* Color oscuro para contraste */
+}
+.inputs{
+    display: inherit;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    
+    
+    
+}
+
+.inputs label{
+    width: 72%;
+    
+}
+
+.inputs input{
+    outline: none;
+    width: 70%;
+    height: 27px;
+}
+
+.button{
+   
+    position: relative;
+    top: 15px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.create-account{
+    width: 320px;
+    box-sizing: border-box;
+    position: relative;
+    top: 15px;
+    display: inherit;
+    border: 1px solid black;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    
+}
+
+.create-account a{
+    color: blue;
+} 
+
+.create-account a:hover{
+    text-decoration: underline;
+} 
+
+.real-main-container{
+    width: 100%;
+    height: 100vh;
+}
