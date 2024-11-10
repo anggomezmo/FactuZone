@@ -12,11 +12,11 @@ function Login() {
           <div className='login-container'>
               <div className='inputs'>
                 <label htmlFor="user">Usuario</label>
-                <input type="text" />
+                <input type="text" id='user' />
               </div>
               <div className='inputs'>
               <label htmlFor="password">Contraseña</label>
-              <input type="password"/>
+              <input type="password" id='password'/>
               </div>
               <div className='button'>
                 <Button to='/dashboard' variant='login'>Iniciar Sesión</Button>

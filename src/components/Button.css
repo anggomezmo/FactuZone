@@ -15,10 +15,15 @@ button {
  cursor: pointer;
  
 }
+.login{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 
 .login button{
-    width: 150px;
-    height: 35px;
+    width: 72%;
+    height: 45px;
     background-color: #4A90E2;
 }
 
