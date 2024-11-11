@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 function Login() {
   return (
     <div className='real-main-container'>
-      <Header to={'/login'}/>
+      <Header to='/login' actualPage='login' />
       <section className='main-container'>
           
           <div className='login-container'>
@@ -23,7 +23,7 @@ function Login() {
               </div>
               <div className='create-account'>
                 <p>¿No tienes una cuenta? </p>
-                <Link to={'/register'}>Regístrate</Link>
+                <Link to='/register'>Regístrate</Link>
               </div>
           </div>
       </section>

@@ -27,7 +27,7 @@ function Register() {
 
 
     <div className='real-main-container'>
-      <Header to = '/login'/>
+      <Header to = '/login' actualPage='register'/>
       <section className='main-container'>
           
           <div className='register-container'>
@@ -40,7 +40,7 @@ function Register() {
               <input type="email" id='user' autoComplete='off'/>
               </div>
               <div className='inputs'>
-                <label htmlFor="number">Número Teléfonico</label>
+                <label htmlFor="number">Número Telefónico</label>
                 <input type="tel" id='number' autoComplete='off' />
               </div>
               <div className='inputs'>

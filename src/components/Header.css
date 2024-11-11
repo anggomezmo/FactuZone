@@ -1,12 +1,14 @@
 .header-container{
     position: absolute;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     height: 80px;
     background-color: white;
     box-sizing: border-box;
     padding-left: 60px;
+    padding-right: 60px;
     border-bottom: 1px solid black;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
@@ -31,4 +33,29 @@
 .logo:active h1 {
     color: #000; /* Mantén el color original al hacer clic */
     outline: none; /* Opcional: elimina borde de foco */
+}
+
+.auth-options{
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    justify-content: center;
+    align-items: center;
+    
+
+
+}
+
+.header-container a.active-link{
+    color: #4A90E2;
+    font-weight: bold;
+}
+
+.header-container a:active{
+    color: #e49696;
+}
+
+.header-container a.active-link:active{
+    color: #e49696;
+    font-weight: bold;
 }
