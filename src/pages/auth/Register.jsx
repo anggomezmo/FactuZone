@@ -27,7 +27,7 @@ function Register() {
 
 
     <div className='real-main-container'>
-      <Header to = '/login' actualPage='register'/>
+      <Header to = '/' actualPage='register'/>
       <section className='main-container'>
           
           <div className='register-container'>

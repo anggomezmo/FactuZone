@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+.real-main-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+
+.first-container{
+        
+        width: 100%;
+        min-height: 950px;
+        box-sizing: border-box;
+        overflow-y: auto;
+        background-image: url('/public/azul.jpg');
+        background-repeat: no-repeat ;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow-x: hidden;
+}
+
+.separator-first-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 75%;
+    gap: 100px;
+}
+
+
+.first-left-container,.first-right-container{
+    height: 500px;
+    width: 500px;
+    
+}
+
+.first-left-container{
+    
+    border-radius: 500px;
+    border: 10px solid white;
+    overflow: hidden;
+    
+    
+}
+
+.first-left-container img { 
+    width: 100%;
+    
+    
+}
+.first-right-container{
+
+    width: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    gap: 50px;
+    height: 400px;
+    
+}
+.login2{height: 40%;}
+
+.first-container h1{
+    height: 60%;
+    margin: 0;
+    color: black;
+    font-family: "Montserrat", Sans-serif;
+    font-size: 4rem;
+    font-weight: 600;
+    line-height: 1.2em;
+}
+
+.footer-first-container{
+    width: 100%;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: rgb(178, 237, 255);
+}
+
+
+.second-container{
+padding: 25PX;
+width: 100%;
+min-height: 800px;
+background-color: white; 
+box-sizing: border-box;
+overflow-y: auto;
+background-image: url('/public/blanco.jpg');
+background-repeat: no-repeat ;
+background-size: cover;    
+}

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 function Login() {
   return (
     <div className='real-main-container'>
-      <Header to='/login' actualPage='login' />
+      <Header to='/' actualPage='login' />
       <section className='main-container'>
           
           <div className='login-container'>

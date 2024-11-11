@@ -1,5 +1,8 @@
 
-
+.real-main-container{
+    width: 100%;
+    height: 100vh;
+}
 .main-container{
     
     display: flex;
@@ -111,7 +114,3 @@
     text-decoration: underline;
 } 
 
-.real-main-container{
-    width: 100%;
-    height: 100vh;
-}

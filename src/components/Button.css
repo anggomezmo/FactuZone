@@ -31,6 +31,26 @@ button {
     background-color: #357ABD;
 }
 
+.login2{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.login2 button{
+    width: 72%;
+    height: 45px;
+    background-color: #ffffff;
+    color: black;
+    font-weight: bold;
+}
+
+.login2 button:hover{
+    background-color: #e4e4e4;
+  
+}
+
 button span {
  cursor: pointer;
  display: inline-block;
