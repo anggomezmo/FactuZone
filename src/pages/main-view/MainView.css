@@ -60,20 +60,20 @@
     align-items: center;
     flex-direction: column;
     margin: 0;
-    gap: 50px;
-    height: 400px;
+    height: 320px;
     
 }
 .login2{height: 40%;}
 
-.first-container h1{
+.first-container .separator-first-container h1{
     height: 60%;
     margin: 0;
     color: black;
     font-family: "Montserrat", Sans-serif;
     font-size: 4rem;
+    letter-spacing: 0.25px;
     font-weight: 600;
-    line-height: 1.2em;
+    line-height: 1em;
 }
 
 .footer-first-container{
@@ -83,9 +83,17 @@
     justify-content: center;
     align-items: center;
     
+    
     background-color: rgb(178, 237, 255);
 }
 
+.footer-first-container-wrapper{
+    gap: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 75%;
+}
 
 .second-container{
 padding: 25PX;

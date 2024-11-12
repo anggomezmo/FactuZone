@@ -2,6 +2,7 @@ import React from 'react'
 import './MainView.css'
 import Header from '../../components/Header'
 import Button from '../../components/Button'
+import FooterDiv from '../../components/FooterDiv'
 function MainView() {
   return (
     <div className='real-main-container'>
@@ -13,24 +14,20 @@ function MainView() {
 
               </div>
               <div className='first-right-container'>
-                <h1>Hacemos de tu bolsillo, una preocupación menos.</h1>
+                <h1>Una preocupación menos para tu bolsillo.</h1>
                 <Button to={'/login'} variant='login2'>Iniciar Sesión</Button>
               </div>
             </div>
 
             <div className='footer-first-container'>
-              <div>
-                1
+    	        <div className='footer-first-container-wrapper'>
+                
+                <FooterDiv upperText='17K' bottomText='Usuarios registrados'/>
+                <FooterDiv upperText='150M' bottomText='Facturas registradas'/>
+                <FooterDiv upperText='50,000' bottomText='Reportes financieros'/>
+                <FooterDiv upperText='9K' bottomText='Clientes felices'/>
               </div>
-              <div>
-                2
-              </div>
-              <div>
-                3
-              </div>
-              <div>
-                4
-              </div>
+             
             </div>
 
         </section>
