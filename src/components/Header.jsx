@@ -2,7 +2,7 @@ import React from 'react'
 import './Header.css'
 import { Link } from 'react-router-dom'
 function Header({ isAuth, actualPage}) {
-  isAuth = false;
+  isAuth = true;
   return (
    <header className='header-container'>
     <Link to='/'>

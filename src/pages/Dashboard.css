@@ -1,0 +1,108 @@
+.father {
+  height: 100vh;
+}
+
+/* Contenedor del dashboard */
+.dashboard-container {
+  display: flex;
+  flex-direction: column; /* Apila las secciones verticalmente */
+  height: 100%;
+  overflow: hidden; /* Evita el scroll dentro del contenedor */
+}
+
+/* Secciones del dashboard */
+.dashboard-section {
+  flex: 1; /* Cada sección ocupa una parte igual de la altura disponible */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Ocupa toda la altura disponible */
+  overflow: hidden; /* Evita el scroll en las secciones */
+}
+
+/* Contenido de cada sección */
+.section-content {
+  width: 100%; /* Ocupa todo el ancho disponible */
+  height: 100%; /* Ocupa toda la altura disponible */
+  background-size: cover; /* Hace que la imagen cubra todo el contenedor */
+  background-position: center center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Asegura que la imagen no se repita */
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Asignación de imágenes de fondo diferentes a cada sección */
+.dashboard-section:nth-child(1) .section-content {
+  background-image: url('/public/builds-1.jpg'); /* Ruta de la imagen para Registro de Facturas */
+}
+
+.dashboard-section:nth-child(2) .section-content {
+  background-image: url('/public/builds-2.jpg'); /* Ruta de la imagen para Control de Gastos */
+}
+
+.dashboard-section:nth-child(3) .section-content {
+  background-image: url('/public/builds-3.jpg'); /* Ruta de la imagen para Reportes Financieros */
+}
+
+/* Hover: Animación */
+.section-content:hover {
+  transform: scale(1.02); /* Aumenta ligeramente el tamaño */
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3); /* Más sombra */
+  cursor: pointer;
+}
+
+/* Estilo del título */
+.section-title {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  text-transform: uppercase;
+}
+
+/* Enlaces */
+.dashboard-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column; /* Las secciones se apilan en una columna */
+    gap: 10px;
+    overflow-y: scroll; /* Permite el scroll en pantallas pequeñas */
+  }
+
+  .dashboard-section {
+    height: auto; /* Ajusta la altura para pantallas pequeñas */
+  }
+
+  .section-content {
+    height: 250px; /* Ajusta la altura para pantallas más pequeñas */
+    padding: 10px;
+    background-size: cover; /* Asegura que las imágenes de fondo se ajusten mejor */
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-content {
+    height: 100%; /* Ajusta la altura en pantallas muy pequeñas */
+  }
+
+  .section-title {
+    font-size: 1.3rem; /* Reduce el tamaño del texto */
+  }
+}

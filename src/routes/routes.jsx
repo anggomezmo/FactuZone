@@ -2,6 +2,7 @@ import Login from "../pages/auth/Login"
 import Dashboard from "../pages/Dashboard";
 import Register from "../pages/auth/Register";
 import MainView from "../pages/main-view/MainView";
+import RegistroFacturas from "../pages/RegistroFacturas";
 import { Navigate } from "react-router-dom";
 
 const isAuthenticated = false; 
@@ -22,5 +23,9 @@ export let appRouter = [
     {
         path: '/register',
         element: <Register />,
+    },
+    {
+        path: '/registro-facturas',
+        element: <RegistroFacturas />,
     }
 ]

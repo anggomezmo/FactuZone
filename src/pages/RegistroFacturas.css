@@ -1,0 +1,106 @@
+/* Contenedor principal */
+.father {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f9; /* Fondo claro */
+  }
+  
+  /* Contenedor del formulario */
+  .register-container {
+    width: 100%;
+    max-width: 600px; /* Máximo ancho del formulario */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    box-sizing: border-box;
+  }
+  
+  /* Título del formulario */
+  .register-container h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  /* Formulario */
+  .register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Campos de entrada */
+  .register-form input {
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease;
+    width: 100%;
+  }
+  
+  /* Foco en los campos de entrada */
+  .register-form input:focus {
+    border-color: #4CAF50; /* Color verde para indicar foco */
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.4); /* Sombra verde para foco */
+  }
+  
+  /* Etiquetas */
+  .register-form label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  /* Estilo del botón (sin usar el componente Button) */
+  .register-form button {
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  /* Hover del botón */
+  .register-form button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Responsivo para pantallas pequeñas */
+  @media (max-width: 768px) {
+    .register-container {
+      width: 90%; /* Hacer el formulario más ancho en pantallas pequeñas */
+      padding: 20px;
+    }
+  
+    .register-form input {
+      font-size: 0.9rem; /* Reducir tamaño de fuente en pantallas pequeñas */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .register-container {
+      padding: 15px;
+    }
+  
+    .register-form input {
+      font-size: 0.8rem; /* Ajustar aún más el tamaño de fuente en pantallas muy pequeñas */
+    }
+  
+    .register-form button {
+      font-size: 1rem; /* Reducir tamaño del botón */
+    }
+  }
+  
