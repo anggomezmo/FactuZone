@@ -1,0 +1,141 @@
+.reportes-container {
+    position: relative;
+    bottom: 2%;
+    display: flex;
+    width: 30%;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #ffffff; /* Más brillante */
+    border: 2px solid #e0e0e0; /* Agregamos un borde visible */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Aumentamos la sombra */
+    border-radius: 15px; /* Más redondeado */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efecto hover */
+}
+
+.reportes-container:hover {
+    transform: translateY(-5px); /* Sutil movimiento hacia arriba */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Sombra más prominente al pasar el ratón */
+}
+  
+  .title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .actions-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .button2 {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button2:hover {
+    background-color: #0056b3;
+  }
+  
+  .table-container {
+    margin-top: 20px;
+  }
+  
+  .subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #555;
+  }
+  
+  .report-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .report-table th,
+  .report-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .facturas-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .factura-item {
+    background-color: #f8f9fa;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .reportes-buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Estilos generales para los botones */
+.reportes-buttons .button2 {
+    background-color: #4CAF50; /* Color verde para el botón */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+  }
+  
+  /* Estilo para cuando los botones están deshabilitados */
+  .reportes-buttons .button2:disabled {
+    background-color: #ccc; /* Color gris cuando está deshabilitado */
+    color: #999; /* Texto gris */
+    cursor: not-allowed; /* Cursor de no permitido */
+    opacity: 0.6; /* Reduce la opacidad para mostrar que está deshabilitado */
+  }
+  
+  /* Estilo para los botones cuando se hace hover (al pasar el ratón por encima) */
+  .reportes-buttons .button2:hover:not(:disabled) {
+    background-color: #45a049; /* Color verde más oscuro al hacer hover */
+  }
+
+  .ingresos-input{
+    margin-bottom: 10px;
+  }
+
+  .reportes-buttons .button3:disabled {
+    background-color: #ccc; /* Color gris cuando está deshabilitado */
+    color: #999; /* Texto gris */
+    cursor: not-allowed; /* Cursor de no permitido */
+    opacity: 0.6; /* Reduce la opacidad para mostrar que está deshabilitado */
+  }
+  
+  /* Estilo para los botones cuando se hace hover (al pasar el ratón por encima) */
+  .reportes-buttons .button3:hover:not(:disabled) {
+    background-color: #1E88E5;; /* Color verde más oscuro al hacer hover */
+  }
+
+  .reportes-buttons .button3 {
+    background-color: #2196F3; /* Color verde para el botón */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+  }

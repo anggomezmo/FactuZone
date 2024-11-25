@@ -6,7 +6,7 @@ import FooterDiv from '../../components/FooterDiv'
 function MainView() {
   return (
     <div className='real-main-container'>
-        <Header actualPage='home'></Header>
+        <Header actualPage='home' isAuth={false}></Header>
         <section className='first-container'>
             <div className='separator-first-container'>
               <div className='first-left-container'>
@@ -31,9 +31,7 @@ function MainView() {
             </div>
 
         </section>
-        <section className='second-container'>
-            chao
-        </section>
+        
 
     </div>
   )

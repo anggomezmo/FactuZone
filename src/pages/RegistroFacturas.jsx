@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header"; // Tu componente existente
 import './RegistroFacturas.css'
+import Swal from "sweetalert2";
 import db from "../services/firebase.js"; // Asegúrate de tener configurada la base de datos
 import {
   collection,
@@ -11,7 +12,7 @@ import {
   doc,
 } from "firebase/firestore";
 
-const Facturas = () => {
+const RegistroFacturas = () => {
   const [facturas, setFacturas] = useState([]);
   const [isViewingInvoices, setIsViewingInvoices] = useState(false);
   const [formData, setFormData] = useState({
@@ -45,25 +46,41 @@ const Facturas = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (editingId) {
-      // Actualizar factura existente
-      const facturaDoc = doc(db, "facturas", editingId);
-      await updateDoc(facturaDoc, formData);
-      setFacturas((prev) =>
-        prev.map((factura) =>
-          factura.id === editingId ? { id: editingId, ...formData } : factura
-        )
-      );
-      setEditingId(null);
-    } else {
-      // Registrar nueva factura
-      const newFactura = await addDoc(collection(db, "facturas"), formData);
-      setFacturas([...facturas, { id: newFactura.id, ...formData }]);
-    }
+    Swal.fire({
+      title: "Cargando...",
+      text: "Por favor espere.",
+      icon: "info",
+      allowOutsideClick: false,
+      didOpen: () => {
+        Swal.showLoading();
+      },
+    });
 
-    // Limpiar formulario
-    setFormData({ proveedor: "", monto: "", fecha: "" });
-    setIsViewingInvoices(false); // Vuelve al formulario después de registrar/editar
+    try {
+      if (editingId) {
+        // Actualizar factura existente
+        const facturaDoc = doc(db, "facturas", editingId);
+        await updateDoc(facturaDoc, formData);
+        setFacturas((prev) =>
+          prev.map((factura) =>
+            factura.id === editingId ? { id: editingId, ...formData } : factura
+          )
+        );
+        setEditingId(null);
+        Swal.fire("Actualización exitosa", "Factura actualizada correctamente", "success");
+      } else {
+        // Registrar nueva factura
+        const newFactura = await addDoc(collection(db, "facturas"), formData);
+        setFacturas([...facturas, { id: newFactura.id, ...formData }]);
+        Swal.fire("Registro exitoso", "Factura registrada correctamente", "success");
+      }
+
+      // Limpiar formulario
+      setFormData({ proveedor: "", monto: "", fecha: "" });
+      setIsViewingInvoices(false); // Vuelve al formulario después de registrar/editar
+    } catch (error) {
+      Swal.fire("Error", "Ocurrió un error al procesar la factura", "error");
+    }
   };
 
   // Manejar edición de factura
@@ -75,13 +92,31 @@ const Facturas = () => {
 
   // Manejar eliminación de factura
   const handleDelete = async (id) => {
-    await deleteDoc(doc(db, "facturas", id));
-    setFacturas((prev) => prev.filter((factura) => factura.id !== id));
+    const result = await Swal.fire({
+      title: "¿Estás seguro?",
+      text: "Esta acción no se puede deshacer.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Sí, eliminar",
+      cancelButtonText: "Cancelar",
+      reverseButtons: true,
+    });
+
+    if (result.isConfirmed) {
+      try {
+        // Eliminar factura
+        await deleteDoc(doc(db, "facturas", id));
+        setFacturas((prev) => prev.filter((factura) => factura.id !== id));
+        Swal.fire("Eliminado", "Factura eliminada correctamente", "success");
+      } catch (error) {
+        Swal.fire("Error", "Ocurrió un error al eliminar la factura", "error");
+      }
+    }
   };
 
   return (
     <div>
-      <Header />
+      <Header isAuth={true} />
       <div className="father"> 
         <div className="facturas-container">
           {!isViewingInvoices ? (
@@ -195,4 +230,4 @@ const Facturas = () => {
   );
 };
 
-export default Facturas;
+export default RegistroFacturas;

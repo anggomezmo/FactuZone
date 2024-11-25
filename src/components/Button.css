@@ -19,6 +19,9 @@ button {
     width: 100%;
     display: flex;
     justify-content: center;
+    background-color: #4A90E2;
+    width: 72%;
+    height: 45px;
 }
 
 .login button{
@@ -27,7 +30,23 @@ button {
     background-color: #4A90E2;
 }
 
+.login:hover{
+    background-color: #357ABD;
+    width: 72%;
+    height: 45px;
+}
+
 .login button:hover{
+    background-color: #357ABD;
+}
+
+.login a{
+    width: 72%;
+    height: 45px;
+    background-color: #4A90E2;
+}
+
+.login a:hover{
     background-color: #357ABD;
 }
 

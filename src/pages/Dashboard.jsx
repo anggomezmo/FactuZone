@@ -5,7 +5,7 @@ import "./Dashboard.css"; // Archivo CSS para estilos
 const Dashboard = () => {
   return (
       <div className="father">
-      <Header actualPage='dashboard'/>
+      <Header actualPage='dashboard' isAuth={true}/>
       <div className="dashboard-container">
         <div className="dashboard-section">
           <Link to="/registro-facturas" className="dashboard-link">

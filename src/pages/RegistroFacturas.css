@@ -12,11 +12,19 @@
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #f9f9f9;
+  padding: 25px; /* Incrementamos el padding */
+  border-radius: 15px; /* Más redondeado */
+  background-color: #ffffff; /* Fondo más brillante */
+  border: 2px solid #e0e0e0; /* Borde visible */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efecto hover */
 }
+
+.facturas-container:hover {
+  transform: translateY(-5px); /* Movimiento hacia arriba */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Sombra más prominente al pasar el ratón */
+}
+
 
 h2 {
   text-align: center;
