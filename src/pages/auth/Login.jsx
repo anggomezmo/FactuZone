@@ -3,19 +3,19 @@ import Button from '../../components/Button';
 import Header from '../../components/Header';
 import './Login.css';
 import { Link, useNavigate } from 'react-router-dom';
-import { auth } from '../../services/firebase.js'; // Asegúrate de que el archivo firebase.js esté exportando correctamente `auth`
-import { signInWithEmailAndPassword } from "firebase/auth"; // Método de autenticación de Firebase
+import { auth } from '../../services/firebase.js';
+import { signInWithEmailAndPassword } from "firebase/auth";
 import Swal from 'sweetalert2';
 
 function Login() {
-  // Estado para los campos de correo y contraseña
+ 
   const [correo, setCorreo] = useState('');
   const [contraseña, setContraseña] = useState('');
 
-  // Hook para la navegación (redirección)
+ 
   const navigate = useNavigate();
 
-  // Función para manejar el inicio de sesión
+
   const handleLogin = async () => {
     if (!correo || !contraseña) {
       Swal.fire('Error', 'Por favor ingresa tu correo y contraseña', 'error');
@@ -23,7 +23,7 @@ function Login() {
     }
 
     try {
-      // Mostrar SweetAlert de carga mientras se intenta el login
+
       const loadingSwal = Swal.fire({
         title: 'Cargando...',
         text: 'Estamos verificando tus credenciales.',
@@ -33,15 +33,14 @@ function Login() {
         },
       });
 
-      // Intentar iniciar sesión con Firebase
+
       await signInWithEmailAndPassword(auth, correo, contraseña);
 
-      // Cerrar SweetAlert de carga
+
       loadingSwal.close();
 
-      // Mostrar un mensaje de éxito
       Swal.fire('Éxito', 'Bienvenido', 'success').then(() => {
-        // Redirigir al dashboard o página principal
+
         navigate('/dashboard');
       });
     } catch (error) {

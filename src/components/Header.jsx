@@ -2,22 +2,52 @@ import React from 'react';
 import './Header.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
-import { auth } from '../../services/firebase'; // Asegúrate de importar correctamente auth
+import { auth } from '../services/firebase';
 
 function Header({ isAuth, actualPage }) {
-  const navigate = useNavigate(); // Usamos useNavigate para redirigir
+  const navigate = useNavigate();
 
-  // Función para manejar el cierre de sesión
   const handleLogout = async () => {
     try {
-      await signOut(auth); // Cerrar sesión en Firebase
-      navigate('/login'); // Redirigir a la página de login
+      // Mostrar SweetAlert de espera
+      Swal.fire({
+        title: "Cerrando sesión...",
+        text: "Por favor, espera un momento.",
+        allowOutsideClick: false,
+        didOpen: () => {
+          Swal.showLoading();
+        },
+      });
+
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+  
+
+      await signOut(auth);
+  
+
+      Swal.fire({
+        icon: "success",
+        title: "¡Sesión cerrada!",
+        text: "Has cerrado sesión correctamente.",
+        timer: 1500,
+        showConfirmButton: false,
+      }).then(() => {
+   
+        navigate('/login');
+        isAuth(false); 
+      });
     } catch (error) {
+     
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "No se pudo cerrar la sesión. Inténtalo de nuevo más tarde.",
+      });
       console.error("Error al cerrar sesión: ", error);
     }
   };
 
-  // Redirección automática al Dashboard si isAuth es true y se da clic en "Inicio"
+
   const handleRedirectHome = () => {
     if (isAuth) {
       navigate('/dashboard');
@@ -38,8 +68,8 @@ function Header({ isAuth, actualPage }) {
             <>
               <Link to="/" className={actualPage === 'home' ? 'active-link' : ''}>Inicio</Link>
               <Link to="/dashboard" className={actualPage === 'dashboard' ? 'active-link' : ''}>MiZone</Link>
-              {/* Enlace de Cerrar Sesión con la misma apariencia de los otros enlaces */}
-              <Link to="/" onClick={handleLogout} className={actualPage === 'logout' ? 'active-link' : ''}>
+           
+              <Link onClick={handleLogout} className={actualPage === 'logout' ? 'active-link' : ''}>
                 Cerrar Sesión
               </Link>
             </>

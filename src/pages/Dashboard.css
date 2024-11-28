@@ -2,32 +2,31 @@
   height: 100vh;
 }
 
-/* Contenedor del dashboard */
 .dashboard-container {
   display: flex;
-  flex-direction: column; /* Apila las secciones verticalmente */
+  flex-direction: column; 
   height: 100%;
   width: 100%;
-  overflow: hidden; /* Evita el scroll dentro del contenedor */
+  overflow: hidden; 
 }
 
-/* Secciones del dashboard */
+
 .dashboard-section {
-  flex: 1; /* Cada sección ocupa una parte igual de la altura disponible */
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%; /* Ocupa toda la altura disponible */
-  overflow: hidden; /* Evita el scroll en las secciones */
+  height: 100%; 
+  overflow: hidden; 
 }
 
-/* Contenido de cada sección */
+
 .section-content {
-  width: 100%; /* Ocupa todo el ancho disponible */
-  height: 100%; /* Ocupa toda la altura disponible */
-  background-size: cover; /* Hace que la imagen cubra todo el contenedor */
-  background-position: center center; /* Centra la imagen */
-  background-repeat: no-repeat; /* Asegura que la imagen no se repita */
+  width: 100%;
+  height: 100%;
+  background-size: cover; 
+  background-position: center center; 
+  background-repeat: no-repeat; 
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -37,27 +36,26 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Asignación de imágenes de fondo diferentes a cada sección */
+
 .dashboard-section:nth-child(1) .section-content {
-  background-image: url('/public/builds-1.jpg'); /* Ruta de la imagen para Registro de Facturas */
+  background-image: url('/public/builds-1.jpg'); 
 }
 
 .dashboard-section:nth-child(2) .section-content {
-  background-image: url('/public/builds-2.jpg'); /* Ruta de la imagen para Control de Gastos */
+  background-image: url('/public/builds-2.jpg'); 
 }
 
 .dashboard-section:nth-child(3) .section-content {
-  background-image: url('/public/builds-3.jpg'); /* Ruta de la imagen para Reportes Financieros */
+  background-image: url('/public/builds-3.jpg'); 
 }
 
-/* Hover: Animación */
+
 .section-content:hover {
-  transform: scale(1.02); /* Aumenta ligeramente el tamaño */
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3); /* Más sombra */
+  transform: scale(1.02); 
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
   cursor: pointer;
 }
 
-/* Estilo del título */
 .section-title {
   color: white;
   font-size: 1.8rem;
@@ -66,7 +64,7 @@
   text-transform: uppercase;
 }
 
-/* Enlaces */
+
 .dashboard-link {
   text-decoration: none;
   color: inherit;
@@ -75,22 +73,20 @@
   width: 100%;
 }
 
-/* Responsivo */
 @media (max-width: 768px) {
   .dashboard-container {
-    flex-direction: column; /* Las secciones se apilan en una columna */
-    gap: 10px;
-    overflow-y: scroll; /* Permite el scroll en pantallas pequeñas */
+    flex-direction: column; 
+    overflow-y: scroll; 
   }
 
   .dashboard-section {
-    height: auto; /* Ajusta la altura para pantallas pequeñas */
+    height: auto; 
   }
 
   .section-content {
-    height: 250px; /* Ajusta la altura para pantallas más pequeñas */
+    height: 250px; 
     padding: 10px;
-    background-size: cover; /* Asegura que las imágenes de fondo se ajusten mejor */
+    background-size: cover;
   }
 
   .section-title {
@@ -100,10 +96,10 @@
 
 @media (max-width: 480px) {
   .section-content {
-    height: 100%; /* Ajusta la altura en pantallas muy pequeñas */
+    height: 100%; 
   }
 
   .section-title {
-    font-size: 1.3rem; /* Reduce el tamaño del texto */
+    font-size: 1.3rem; 
   }
 }

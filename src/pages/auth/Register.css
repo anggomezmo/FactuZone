@@ -27,13 +27,13 @@
     padding: 20px;
     padding-top: 30px;
     background-color: white;
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
 .main-container .register-container label{
-        font-weight: 600; /* Negrita para mayor visibilidad */
+        font-weight: 600; 
         font-size: 16px;
-        color: #333; /* Color oscuro para contraste */
+        color: #333; 
 }
 .inputs{
     display: inherit;

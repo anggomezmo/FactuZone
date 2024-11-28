@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Header from "../components/Header"; // Tu componente existente
+import Header from "../components/Header"; 
 import './RegistroFacturas.css'
 import Swal from "sweetalert2";
-import db from "../services/firebase.js"; // Asegúrate de tener configurada la base de datos
+import db from "../services/firebase.js"; 
 import {
   collection,
   addDoc,
@@ -22,7 +22,7 @@ const RegistroFacturas = () => {
   });
   const [editingId, setEditingId] = useState(null);
 
-  // Cargar las facturas al montar el componente
+ 
   useEffect(() => {
     const fetchFacturas = async () => {
       const facturasSnapshot = await getDocs(collection(db, "facturas"));
@@ -36,13 +36,13 @@ const RegistroFacturas = () => {
     fetchFacturas();
   }, []);
 
-  // Manejar cambios en el formulario
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  // Registrar una nueva factura o actualizar una existente
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -77,7 +77,7 @@ const RegistroFacturas = () => {
 
       // Limpiar formulario
       setFormData({ proveedor: "", monto: "", fecha: "" });
-      setIsViewingInvoices(false); // Vuelve al formulario después de registrar/editar
+      setIsViewingInvoices(false); 
     } catch (error) {
       Swal.fire("Error", "Ocurrió un error al procesar la factura", "error");
     }

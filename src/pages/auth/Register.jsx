@@ -19,13 +19,13 @@ function Register() {
     fechaNacimiento: "",
   });
 
-  const navigate = useNavigate(); // Hook para redirección al login
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     flatpickr("#born-date", {
       dateFormat: "Y-m-d",
       onChange: (selectedDates, dateStr) => {
-        // Actualiza el estado cuando se selecciona una fecha
+       
         setFormData((prevFormData) => ({
           ...prevFormData,
           fechaNacimiento: dateStr,
@@ -37,13 +37,13 @@ function Register() {
   const handleRegister = async () => {
     const { nombre, correo, telefono, contraseña, fechaNacimiento } = formData;
 
-    // Verificar si todos los campos están llenos
+    
     if (!nombre || !correo || !telefono || !contraseña || !fechaNacimiento) {
       Swal.fire("Error", "Todos los campos son obligatorios", "error");
       return;
     }
 
-    // Mostrar el SweetAlert de carga
+   
     const loadingSwal = Swal.fire({
       title: "Cargando...",
       text: "Estamos registrando tu cuenta.",
@@ -54,11 +54,11 @@ function Register() {
     });
 
     try {
-      // Registrar el usuario con Firebase Authentication
+      
       const userCredential = await createUserWithEmailAndPassword(auth, correo, contraseña);
       const user = userCredential.user;
 
-      // Guardar la información del usuario en Firestore
+      
       await setDoc(doc(db, "users", user.uid), {
         nombre,
         correo,
@@ -66,12 +66,12 @@ function Register() {
         fechaNacimiento,
       });
 
-      // Cerrar el SweetAlert de carga
+      
       loadingSwal.close();
 
-      // Mostrar un mensaje de éxito
+      
       Swal.fire("Éxito", "Registro exitoso. Ahora puedes iniciar sesión.", "success").then(() => {
-        // Limpiar los campos del formulario
+     
         setFormData({
           nombre: "",
           correo: "",
@@ -80,14 +80,14 @@ function Register() {
           fechaNacimiento: "",
         });
 
-        // Redirigir al login
+      
         navigate("/login");
       });
     } catch (error) {
-      // Cerrar el SweetAlert de carga
+
       loadingSwal.close();
 
-      // Mostrar un error si algo salió mal
+    
       Swal.fire("Error", error.message, "error");
     }
   };

@@ -11,7 +11,7 @@ const ReportesFinancieros = () => {
   const [facturas, setFacturas] = useState([]);
   const [gastos, setGastos] = useState([]);
   const [reportData, setReportData] = useState([]);
-  const [ingresos, setIngresos] = useState(""); // Estado para el ingreso
+  const [ingresos, setIngresos] = useState("");
 
   useEffect(() => {
     const fetchFacturas = async () => {
@@ -37,7 +37,7 @@ const ReportesFinancieros = () => {
 
   // Calcular reportes
   const generateReport = () => {
-    const ingresoValue = parseFloat(ingresos); // Valor del ingreso ingresado por el usuario
+    const ingresoValue = parseFloat(ingresos);
     const egresos = gastos.reduce((total, gasto) => total + parseFloat(gasto.monto || 0), 0);
     const ganancias = ingresoValue - egresos;
 
@@ -57,8 +57,7 @@ const ReportesFinancieros = () => {
   };
   const getFacturasProximas = () => {
     const hoy = new Date();
-    return facturas.filter((factura) => {
-      if (!factura.fecha) return false; // Aseguramos que exista el campo "fecha"
+    return facturas.filter((factura) => { // Aseguramos que exista el campo "fecha"
       const fechaVencimiento = new Date(factura.fecha);
       const diferenciaDias = (fechaVencimiento - hoy) / (1000 * 60 * 60 * 24);
       return diferenciaDias <= 7 && diferenciaDias >= 0;
@@ -68,48 +67,47 @@ const ReportesFinancieros = () => {
   const getFacturasVencidas = () => {
     const hoy = new Date();
     return facturas.filter((factura) => {
-      if (!factura.fecha) return false; // Asegurarse de que exista el campo "fecha"
+      if (!factura.fecha) return false;
       const fechaVencimiento = new Date(factura.fecha);
-      return fechaVencimiento < hoy; // Facturas con fecha pasada
+      return fechaVencimiento < hoy; 
     });
   };
 
   const exportToExcel = () => {
-    const groupedGastos = groupByCategory(); // Agrupar los gastos por categoría
-    const report = []; // Aquí almacenaremos los datos del reporte
-  
-    // Primero, tenemos que mapear los proveedores de las facturas
+    const groupedGastos = groupByCategory(); 
+    const report = [];
+    
     const proveedoresMap = facturas.reduce((acc, factura) => {
-      acc[factura.id] = factura.proveedor; // Asumimos que factura.id es el identificador único
+      acc[factura.id] = factura.proveedor; 
       return acc;
     }, {});
   
-    let totalEgresos = 0; // Variable para almacenar el total de egresos
-    let totalGeneral = 0; // Variable para almacenar el total general
+    let totalEgresos = 0; 
+    let totalGeneral = 0;
   
     // Recorremos las categorías agrupadas de los gastos
     for (const categoria in groupedGastos) {
-      let categoriaTotal = 0; // Variable para almacenar el total de cada categoría
+      let categoriaTotal = 0; 
   
       // Recorremos los gastos de la categoría
       groupedGastos[categoria].forEach((gasto) => {
-        const monto = Number(gasto.monto); // Convertimos a número explícitamente
-        categoriaTotal += isNaN(monto) ? 0 : monto; // Si el monto no es un número, lo sumamos como 0
+        const monto = Number(gasto.monto); 
+        categoriaTotal += isNaN(monto) ? 0 : monto;
       });
   
       // Agregamos los totales por categoría al reporte
       report.push({
         categoria: categoria,
-        total: categoriaTotal.toFixed(2), // Aseguramos que el total tenga 2 decimales
+        total: categoriaTotal.toFixed(2), 
       });
   
       // Agregamos los detalles de cada gasto en esa categoría
       groupedGastos[categoria].forEach((gasto) => {
-        const monto = Number(gasto.monto); // Convertimos a número explícitamente
+        const monto = Number(gasto.monto);
   
         report.push({
           categoria: `${categoria} - Detalles`,
-          monto: isNaN(monto) ? "0.00" : monto.toFixed(2), // Aseguramos que monto es un número válido
+          monto: isNaN(monto) ? "0.00" : monto.toFixed(2), 
           fecha: gasto.fecha,
         });
   
@@ -125,15 +123,15 @@ const ReportesFinancieros = () => {
 
     report.push({
         categoria: "Total General",
-        total: totalGeneral.toFixed(2), // Total general con 2 decimales
+        total: totalGeneral.toFixed(2),
       });
     // Agregamos el balance de ganancias al reporte
     report.push({
       categoria: "Ganancias",
-      total: ganancias.toFixed(2), // Aseguramos que las ganancias tengan 2 decimales
+      total: ganancias.toFixed(2), 
     });
   
-    // Agregamos una fila final con el total general
+
     
   
     // Creamos la hoja de Excel con los datos del reporte
@@ -144,7 +142,7 @@ const ReportesFinancieros = () => {
     // Generamos el archivo Excel
     XLSX.writeFile(workbook, "reporte_financiero_con_ganancias.xlsx");
   };
-  // Exportar a PDF
+
   const groupByCategory = () => {
     return gastos.reduce((acc, gasto) => {
       if (gasto.categoria) {
