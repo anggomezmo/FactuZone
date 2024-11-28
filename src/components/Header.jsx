@@ -3,6 +3,7 @@ import './Header.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { auth } from '../services/firebase';
+import Swal from 'sweetalert2';
 
 function Header({ isAuth, actualPage }) {
   const navigate = useNavigate();
@@ -34,7 +35,7 @@ function Header({ isAuth, actualPage }) {
       }).then(() => {
    
         navigate('/login');
-        isAuth(false); 
+        isAuth = false 
       });
     } catch (error) {
      
