@@ -56,6 +56,7 @@ function Header({ isAuth, actualPage }) {
   };
 
   return (
+    <div className='prueba'>
     <header className='header-container'>
       <Link to='/' onClick={handleRedirectHome}>
         <div className='logo'>
@@ -84,6 +85,7 @@ function Header({ isAuth, actualPage }) {
         }
       </div>
     </header>
+    </div>
   );
 }
 

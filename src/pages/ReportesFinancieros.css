@@ -1,4 +1,10 @@
+.father {
+  display: block;
+}
+
+
 .reportes-container {
+
     position: relative;
     bottom: 2%;
     display: flex;
@@ -13,6 +19,8 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Aumentamos la sombra */
     border-radius: 15px; /* Más redondeado */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efecto hover */
+    flex-grow: 1;  /* Permite que el contenedor crezca hacia abajo */
+    margin-top: 3%;
 }
 
 .reportes-container:hover {
@@ -47,9 +55,42 @@
   .button2:hover {
     background-color: #0056b3;
   }
-  
   .table-container {
-    margin-top: 20px;
+    margin-top: 30px; /* Espacio superior de la tabla */
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centra la tabla horizontalmente */
+  }
+  
+  table {
+    width: 80%; /* Ajusta el ancho de la tabla */
+    border-collapse: collapse; /* Evita doble borde */
+    margin: 0 auto; /* Centra la tabla dentro del contenedor */
+  }
+  
+  th, td {
+    padding: 15px 25px; /* Incrementa el espacio interno */
+    text-align: left; /* Alineación del texto */
+  }
+  
+  th {
+    background-color: #f8f9fa; /* Fondo más claro para encabezados */
+    border-bottom: 2px solid #dee2e6; /* Borde inferior del encabezado */
+    font-weight: bold; /* Texto en negrita */
+    font-size: 1rem; /* Tamaño de fuente del encabezado */
+  }
+  
+  td {
+    border-bottom: 1px solid #dee2e6; /* Borde inferior de las celdas */
+    font-size: 0.95rem; /* Tamaño de fuente para las celdas */
+  }
+  
+  tr:last-child td {
+    border-bottom: none; /* Sin borde en la última fila */
+  }
+  
+  td:first-child {
+    padding-left: 30px; /* Más espacio en la primera columna */
   }
   
   .subtitle {

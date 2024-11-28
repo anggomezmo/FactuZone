@@ -163,7 +163,7 @@ const ReportesFinancieros = () => {
 
   return (
 
-    <div>
+    <div className="asad">
         <Header isAuth={true}/>
         <div className="father">
         <div className="reportes-container">
@@ -178,11 +178,10 @@ const ReportesFinancieros = () => {
             value={ingresos}
             onChange={(e) => setIngresos(e.target.value)}
             placeholder="Ingrese sus ingresos"
-            required // Se usa "required" para hacer que este campo sea obligatorio
+            required 
             />
         </div>
 
-        {/* Botones de acciones */}
         <div className="reportes-buttons">
             <button 
             className="button3" 
@@ -198,7 +197,7 @@ const ReportesFinancieros = () => {
             </button>
         </div>
 
-        {/* Tabla de reportes */}
+        
         {reportData.length > 0 && (
             <div className="table-container">
             <table>
@@ -212,7 +211,7 @@ const ReportesFinancieros = () => {
                 {reportData.map((item, index) => (
                     <tr key={index}>
                     <td>{item.concepto}</td>
-                    <td>${item.monto.toFixed(2)}</td>
+                    <td>{new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(item.monto)}</td>
                     </tr>
                 ))}
                 </tbody>
@@ -226,7 +225,11 @@ const ReportesFinancieros = () => {
             {getFacturasProximas().length > 0 ? (
             getFacturasProximas().map((factura) => (
                 <li key={factura.id}>
-                {factura.proveedor} - {factura.fecha}
+                   <strong>Proveedor:</strong> {factura.proveedor}
+                   <br />
+                   <strong>Monto:</strong> {new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(factura.monto)}
+                   <br />
+                   <strong>Fecha de vencimiento:</strong> {factura.fecha}
                 </li>
             ))
             ) : (
@@ -241,6 +244,8 @@ const ReportesFinancieros = () => {
                     <strong>Proveedor:</strong> {factura.proveedor}
                     <br /> 
                     <strong>Fecha de vencimiento:</strong> {factura.fecha}
+                    <br /> 
+                    <strong>Monto:</strong> {new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(factura.monto)}
                 </li>
                 ))
             ) : (
